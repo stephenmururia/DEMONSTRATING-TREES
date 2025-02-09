@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+void preOrder(int index, char tree[]) {
+    if (index >= 7) {
+        return; // If we go beyond the 7 nodes, stop.
+    }
+
+    // Print the current node
+    printf("%c ", tree[index]);
+
+    // Recursively print left and right subtrees
+    preOrder(2 * index + 1, tree);  // Left child (2 * index + 1)
+    preOrder(2 * index + 2, tree);  // Right child (2 * index + 2)
+}
+
+int main() {
+    // Represent the tree as an array (perfect binary tree)
+    // Index 0 is the root, and for any index i:
+    // Left child is at index 2 * i + 1
+    // Right child is at index 2 * i + 2
+    char tree[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G'};
+
+    printf("Pre-order traversal of the tree: \n");
+    preOrder(0, tree);  // Start from the root (index 0)
+    printf("\n");
+
+    return 0;
+}
